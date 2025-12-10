@@ -13,7 +13,7 @@ Create a monitoring script that tracks system health and manages logs with Git v
    - Alert (print to console or send email) when:
      - CPU usage > 80%
      - Memory usage > 85%
-     - Disk usage > 90%
+     - Disk usage > 90% (Name of partition and mount point)
      - Any monitored service is down
 
 2. **Automation**:
@@ -44,7 +44,7 @@ Create a monitoring script that tracks system health and manages logs with Git v
 ## Task 2: Multi-Protocol Web Server Setup
 
 ### Objective
-Set up a web server with multiple protocols, proper security, and firewall configuration.
+Set up a web server with multiple protocols, proper security, and firewall configuration. Use Nginx for internet facing
 
 ### Requirements
 1. **Web Application**:
@@ -55,8 +55,8 @@ Set up a web server with multiple protocols, proper security, and firewall confi
 
 2. **Security Configuration**:
    - Generate self-signed SSL certificate
-   - Configure HTTPS on port 443
-   - HTTP on port 80 redirects to HTTPS
+   - Configure HTTPS on port 443 using nginx and proxy-pass
+   - HTTP on port 80 redirects to HTTPS using 301(302) or 308(307) response codes
 
 3. **Firewall Setup**:
    - Configure iptables/firewalld rules:
@@ -65,7 +65,7 @@ Set up a web server with multiple protocols, proper security, and firewall confi
      - Allow all outgoing traffic
    - Document all firewall rules
 
-4. **WAF Basic Rules**:
+4. **WAF Basic Rules**: (Read how can be done)
    - Implement simple request validation
    - Block requests containing SQL injection patterns (`' OR '1'='1`, `UNION SELECT`, etc.)
    - Log blocked requests
@@ -121,6 +121,8 @@ Build a robust backup solution with remote transfer capabilities and version con
    - Test network connectivity before remote backup
    - Verify archive integrity after creation
    - Keep only last 7 backups, delete older ones
+   - Understand what is a .tar file and what is a .gz file
+   - compare initial size and archive size
 
 2. **Features**:
    - Pre-backup validation (check disk space, verify source exists)
@@ -193,6 +195,7 @@ Develop a comprehensive network testing tool in Python.
      - SSL certificate validity and expiration date
      - DNS resolution time
      - Connection success/failure
+     - GRCP is optional
 
 2. **Output**:
    - Generate JSON report with timestamp
